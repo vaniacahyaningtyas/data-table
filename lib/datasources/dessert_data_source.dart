@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:logger/web.dart';
 import 'package:myapp/models/dessert.dart';
 import 'package:myapp/pages/datatable.dart';
 
@@ -108,6 +109,30 @@ class DessertDataSource extends DataTableSource {
         12,
         6,
       ),
+
+      //11
+      Dessert(
+        'Donut 2',
+        452,
+        25.0,
+        51,
+        4.9,
+        326,
+        2,
+        22,
+      ),
+
+      //12
+      Dessert(
+        'Apple Pie2',
+        518,
+        26.0,
+        65,
+        7.0,
+        54,
+        12,
+        6,
+      ),
     ];
   }
 
@@ -129,6 +154,11 @@ class DessertDataSource extends DataTableSource {
     // Make sure index is valid
     assert(index >= 0);
     if (index >= desserts.length) return null;
+
+    // logging flutter
+    var logger = Logger();
+    logger.i(desserts.length);
+
     final dessert = desserts[index];
 
     // Create the DataRow with cells for each dessert property

@@ -179,10 +179,10 @@ class _MyDatatableState extends State<MyDatatable> with RestorationMixin {
                   'Nutrition'), // Set the header text of the data table
 
               // FIXME: error disini
-              // rowsPerPage: _rowsPerPage.value,
-              // initialFirstRowIndex: _rowIndex.value,
-              // sortColumnIndex: _sortColumnIndex.value,
-              // sortAscending: _sortAscending.value,
+              rowsPerPage: _rowsPerPage.value,
+              initialFirstRowIndex: _rowIndex.value,
+              sortColumnIndex: _sortColumnIndex.value,
+              sortAscending: _sortAscending.value,
               onRowsPerPageChanged: (value) {
                 setState(() {
                   _rowsPerPage.value = value!;
@@ -199,35 +199,48 @@ class _MyDatatableState extends State<MyDatatable> with RestorationMixin {
               columns: [
                 DataColumn(
                   label: const Text('Dessert 1 serving'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) =>
+                      _sort<String>((d) => d.name, columnIndex, ascending),
                 ),
                 DataColumn(
                   label: const Text('Calories'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) =>
+                      _sort<num>((d) => d.calories, columnIndex, ascending),
                 ),
                 DataColumn(
                   label: const Text('Fat (g)'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) =>
+                      _sort<num>((d) => d.fat, columnIndex, ascending),
                 ),
                 DataColumn(
                   label: const Text('Carbs (g)'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) {
+                    _sort<num>((d) => d.carbs, columnIndex, ascending);
+                  },
                 ),
                 DataColumn(
                   label: const Text('Protein (g)'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) {
+                    _sort<num>((d) => d.protein, columnIndex, ascending);
+                  },
                 ),
                 DataColumn(
                   label: const Text('Sodium (mg)'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) {
+                    _sort<num>((d) => d.sodium, columnIndex, ascending);
+                  },
                 ),
                 DataColumn(
                   label: const Text('Calcium (%)'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) {
+                    _sort<num>((d) => d.calcium, columnIndex, ascending);
+                  },
                 ),
                 DataColumn(
                   label: const Text('Iron (%)'),
-                  onSort: (int columnIndex, bool ascending) {},
+                  onSort: (int columnIndex, bool ascending) {
+                    _sort<num>((d) => d.iron, columnIndex, ascending);
+                  },
                 ),
               ],
               source: _dessertsDataSource!,
