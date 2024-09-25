@@ -1,0 +1,1 @@
+ /home/user/flutter-datatable/.dart_tool/flutter_build/16ab5f77701b1021c9090bee52b7df26/native_assets.yaml: 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:logger/web.dart';
 import 'package:myapp/models/dessert.dart';
 import 'package:myapp/pages/datatable.dart';
@@ -10,130 +9,44 @@ class DessertDataSource extends DataTableSource {
     // Initialize the list of desserts
     desserts = <Dessert>[
       Dessert(
-        'Frozen Yogurt',
-        159,
-        6.0,
-        24,
-        4.0,
-        87,
-        14,
-        1,
-      ),
-      Dessert(
-        'IceCream Sandwich',
-        237,
-        9.0,
-        37,
-        4.3,
-        129,
-        8,
-        1,
-      ),
-      Dessert(
-        'Eclair',
-        262,
-        16.0,
-        24,
-        6.0,
-        337,
-        6,
-        7,
-      ),
-      Dessert(
-        'Cupcake',
-        305,
-        3.7,
-        67,
-        4.3,
-        413,
-        3,
-        8,
-      ),
-      Dessert(
-        'Gingerbread',
-        356,
-        16.0,
-        49,
-        3.9,
-        327,
-        7,
-        16,
-      ),
-      Dessert(
-        'JellyBean',
-        375,
-        0.0,
-        94,
-        0.0,
-        50,
-        0,
-        0,
-      ),
-      Dessert(
-        'Lollipop',
-        392,
-        0.2,
-        98,
-        0.0,
-        38,
-        0,
-        2,
-      ),
-      Dessert(
-        'Honeycomb',
-        408,
-        3.2,
-        87,
-        6.5,
-        562,
-        0,
-        45,
-      ),
-      Dessert(
-        'Donut',
-        452,
-        25.0,
-        51,
-        4.9,
-        326,
-        2,
-        22,
-      ),
-      Dessert(
-        'Apple Pie',
-        518,
-        26.0,
-        65,
-        7.0,
-        54,
-        12,
-        6,
+        'laptop Lenovo',
+        10000000,
+        15,
+        15,
+        
       ),
 
-      //11
       Dessert(
-        'Donut 2',
-        452,
-        25.0,
-        51,
-        4.9,
-        326,
-        2,
-        22,
+        'Ponsel Pintar Iphone 13',
+        12500000,
+        20,
+        15,
+
+      ),
+      Dessert(
+        'TV Pintar LG 55 Inci',
+        8000000,
+        15,
+        15,
+
+      ),
+      Dessert(
+        'Kamera DSLR Canon 700D',
+        65000000,
+        18,
+        15,
+
+      ),
+      Dessert(
+        'Printer Canon Pixma',
+        2750000,
+        10,
+        15,
+
       ),
 
-      //12
-      Dessert(
-        'Apple Pie2',
-        518,
-        26.0,
-        65,
-        7.0,
-        54,
-        12,
-        6,
-      ),
-    ];
+     
+       ];
   }
 
   // The BuildContext passed to the constructor
@@ -148,9 +61,7 @@ class DessertDataSource extends DataTableSource {
   @override
   DataRow? getRow(int index) {
     // Number formatter for percentages
-    final format = NumberFormat.decimalPercentPattern(
-      decimalDigits: 0,
-    );
+   
     // Make sure index is valid
     assert(index >= 0);
     if (index >= desserts.length) return null;
@@ -179,11 +90,7 @@ class DessertDataSource extends DataTableSource {
         DataCell(Text('${dessert.calories}')),
         DataCell(Text(dessert.fat.toStringAsFixed(1))),
         DataCell(Text('${dessert.carbs}')),
-        DataCell(Text(dessert.protein.toStringAsFixed(1))),
-        DataCell(Text('${dessert.sodium}')),
-        DataCell(Text(format.format(dessert.calcium / 100))),
-        DataCell(Text(format.format(dessert.iron / 100))),
-      ],
+        ],
     );
   }
 
